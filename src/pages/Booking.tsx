@@ -1,0 +1,70 @@
+import { useState } from "react";
+import DateAndTime from "../components/bookingForm/DateAndTime";
+import ServicesPick from "../components/bookingForm/ServicesPick";
+import Info from "../components/bookingForm/Info";
+import ServiceSummary from "../components/bookingForm/ServiceSummary";
+const Booking = () => {
+  const FormTitles = [
+    " when do you want to come ?",
+    "what do you need ?",
+    "please fill out the form",
+    "booking summary",
+  ];
+  const [page, setPage] = useState(0);
+
+  const PageDisplay = () => {
+    if (page === 0) {
+      return <DateAndTime formData={formData} setFormData={setFormData} />;
+    } else if (page === 1) {
+      return <ServicesPick formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <Info formData={formData} setFormData={setFormData} />;
+    } else {
+      return <ServiceSummary formData={formData} setFormData={setFormData} />;
+    }
+  };
+
+  const [formData, setFormData] = useState({
+    date: "",
+    time: "",
+    serviceMsg: "",
+    name: "",
+    email: "",
+    tel: "",
+  });
+  return (
+    <div className=" mx-8 mb-8 flex text-center  pt-10 font-medium md:mx-16 lg:mx-32 flex-col	">
+      <div className="  border-black border-4">
+        <p className="text-[24px] mt-5"> Book An Appointment</p>
+        <p className="text-[20px] mt-5"> {FormTitles[page]}</p>
+        <div> {PageDisplay()}</div>
+        <div className="">
+          <button
+            disabled={page === 0}
+            className="mx-2 bg-[#fff] text-[#000] py-2 px-5  border-2 border-black my-2"
+            onClick={() => {
+              setPage((currentPage) => currentPage - 1);
+            }}
+          >
+            {" "}
+            prev
+          </button>
+          <button
+            className="mx-2 bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5  border-2 border-black my-2"
+            onClick={() => {
+              if (page === FormTitles.length - 1) {
+                console.log(formData);
+              } else {
+                setPage((currentPage) => currentPage + 1);
+              }
+            }}
+          >
+            {page === FormTitles.length - 1 ? "submit" : "next"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Booking;
