@@ -1,15 +1,33 @@
 import { useState } from "react";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const [formData, setFormData] = useState({
+    date: "",
+    time: "",
+    serviceMsg: "",
+    name: "",
+    email: "",
+    tel: "",
+  });
+  const notify = () => {
+    toast.success("Thank you for filling out your information!");
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("sucess");
+  };
+
   return (
     <div>
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-[64px] font-bold text-center">Contact Us</h2>
-        <form className="flex flex-col  gap-12 py-24">
+        <form className="flex flex-col  gap-12 py-24" onSubmit={onSubmit}>
           <div>
             <label
               htmlFor="Name"
@@ -56,9 +74,16 @@ const Contact = () => {
               placeholder="Leave a comment..."
             ></textarea>
           </div>
-          <button className="bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5   border-r-2 border-b-2 border-black  w-[200px] ">
-            Submit
-          </button>
+
+          <div className="w-[500px]">
+            <button
+              onClick={notify}
+              className="bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5   border-r-2 border-b-2 border-black  w-[200px] "
+            >
+              Submit
+            </button>
+            <ToastContainer />
+          </div>
         </form>
       </div>
     </div>

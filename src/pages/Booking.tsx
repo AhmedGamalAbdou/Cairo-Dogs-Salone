@@ -3,6 +3,10 @@ import DateAndTime from "../components/bookingForm/DateAndTime";
 import ServicesPick from "../components/bookingForm/ServicesPick";
 import Info from "../components/bookingForm/Info";
 import ServiceSummary from "../components/bookingForm/ServiceSummary";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+
 const Booking = () => {
   const FormTitles = [
     " when do you want to come ?",
@@ -32,6 +36,8 @@ const Booking = () => {
     email: "",
     tel: "",
   });
+  const navigate = useNavigate();
+
   return (
     <div className=" mx-8 mb-8 flex text-center  pt-10 font-medium md:mx-16 lg:mx-32 flex-col	">
       <div className="  border-black border-4">
@@ -53,7 +59,10 @@ const Booking = () => {
             className="mx-2 bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5  border-2 border-black my-2"
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                console.log(formData);
+                toast.success(
+                  "Thank you for filling out your information we will revert to you soon."
+                );
+                navigate("/");
               } else {
                 setPage((currentPage) => currentPage + 1);
               }

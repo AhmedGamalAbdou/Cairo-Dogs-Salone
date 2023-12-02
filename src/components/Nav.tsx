@@ -6,7 +6,7 @@ export default function Nav() {
   const matches = useMediaQuery("(min-width: 1280px)");
 
   return (
-    <nav className=" relative mx-8 mb-8 flex items-center justify-between  pt-10 font-medium md:mx-16 lg:mx-32 text-[#000]">
+    <nav className=" relative mx-8 mb-8 flex items-center justify-between  pt-10 font-medium md:mx-16 lg:mx-32 text-[#000] ">
       <h1 className="text-3xl font-bold ">
         <Link className="py-2" to="/">
           Cairo Dogs Salone

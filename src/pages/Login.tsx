@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -14,13 +16,14 @@ const Login = () => {
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
       .then((userCredential) => {
         const user = userCredential.user;
+        toast.success("welcome!");
         navigate("/");
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        toast.error("You have entered an invalid username or password");
       });
   };
 
@@ -72,27 +75,7 @@ const Login = () => {
                     }}
                   />
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label htmlFor="remember" className=" text-black">
-                        Remember me
-                      </label>
-                    </div>
-                  </div>
-                  <p className="text-sm font-medium text-black hover:underline dark:text-primary-500">
-                    Forgot password?
-                  </p>
-                </div>
+
                 <button
                   onClick={log}
                   type="submit"
@@ -100,17 +83,14 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  <FcGoogle className="mt-1 mr-2" /> Login with Google
-                </button>
                 <p className="text-sm  text-black">
-                  Don’t have an account yet?{" "}
-                  <p className="font-medium text-black hover:underline dark:text-primary-500">
+                  don't have an account?{" "}
+                  <Link
+                    to="/signup"
+                    className="font-medium text-black hover:underline dark:text-primary-500"
+                  >
                     Sign up
-                  </p>
+                  </Link>
                 </p>
               </form>
             </div>

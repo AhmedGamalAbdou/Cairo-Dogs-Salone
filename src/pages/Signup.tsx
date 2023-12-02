@@ -3,6 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
 import { useNavigate, Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const [signupEmail, setSignupEmail] = useState("");
@@ -24,10 +26,13 @@ const Signup = () => {
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
+
+    toast.success("Thank you for sign up you can proceed to booking");
+    navigate("/booking");
   };
 
   return (
-    <div className="mt-[100px]">
+    <div className="h-5/6">
       <section className=" py-10  ">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-fit lg:py-0">
           <div className="w-full bg-white rounded-lg  shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 ">
@@ -74,26 +79,7 @@ const Signup = () => {
                     }}
                   />
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label htmlFor="remember" className=" text-black">
-                        I accept cairo dogs salone terms and conditions of use,
-                        I agree to their privacy policy and I agree to receive
-                        emails from them.
-                      </label>
-                    </div>
-                  </div>
-                </div>
+
                 <button
                   onClick={onSubmit}
                   type="submit"
@@ -101,15 +87,7 @@ const Signup = () => {
                 >
                   Create account
                 </button>
-                <div>
-                  <p className="text-center"> or </p>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  <FcGoogle className="mt-1 mr-2" /> Sign up with Google
-                </button>
+
                 <p className="text-sm  text-black">
                   Already have an account?{" "}
                   <Link

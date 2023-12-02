@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
@@ -10,6 +12,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Root from "./Root";
 import Booking from "./pages/Booking";
+import { AuthContext } from "./Context/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,12 +26,22 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
-      { path: "booking", element: <Booking /> },
+      {
+        path: "booking",
+        element: (
+          <ProtectedRoute>
+            <Booking />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContext>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </AuthContext>
   </React.StrictMode>
 );
