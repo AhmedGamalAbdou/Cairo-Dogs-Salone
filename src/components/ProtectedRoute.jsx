@@ -1,13 +1,11 @@
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { useContext } from "react";
-import { Context } from "../Context/AuthContext";
+import Booking from "../pages/Booking";
 
-export function ProtectedRoute({ children }) {
-  const { user } = useContext(Context);
+const ProtectedRoute = () => {
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
-  if (!user) {
-    return <Navigate to="/signup" replace />;
-  } else {
-    return children;
-  }
-}
+  return currentUser ? <Booking /> : <Navigate to="/login" />;
+};
+
+export default ProtectedRoute;

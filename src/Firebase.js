@@ -1,17 +1,22 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+// Import the functions you need from the SDKs you need
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCefv1wLuU2mnFupmmNwcOpC22Aa-L4iWM",
-  authDomain: "dog-salone.firebaseapp.com",
-  projectId: "dog-salone",
-  storageBucket: "dog-salone.appspot.com",
-  messagingSenderId: "868426687604",
-  appId: "1:868426687604:web:3fc0b269543650eabd5d21",
+  apiKey: "AIzaSyCDvA6_UdnUxUwfsNMaMjNKBP90DIVrbOk",
+  authDomain: "salone-b178e.firebaseapp.com",
+  projectId: "salone-b178e",
+  storageBucket: "salone-b178e.appspot.com",
+  messagingSenderId: "878282002058",
+  appId: "1:878282002058:web:95a1978ebb362514022773",
 };
 
+// Initialize Firebase
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-export default app;
+export const db = getFirestore(app);
