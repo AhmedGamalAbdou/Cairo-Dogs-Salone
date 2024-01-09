@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
 import { useNavigate, Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
@@ -83,15 +82,17 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <p className="text-sm  text-black">
-                  don't have an account?{" "}
-                  <Link
-                    to="/signup"
-                    className="font-medium text-black hover:underline dark:text-primary-500"
-                  >
-                    Sign up
-                  </Link>
-                </p>
+                <div>
+                  <p className="text-sm  text-black">
+                    don't have an account?
+                    <Link
+                      to="/signup"
+                      className="font-medium text-black hover:underline dark:text-primary-500 mx-1"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
+                </div>
               </form>
             </div>
           </div>

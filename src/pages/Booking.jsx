@@ -9,9 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { createABooking } from "../redux/slices/bookingSlice";
 import { useDispatch } from "react-redux";
 import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 const Booking = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const FormTitles = [
     " when do you want to come ?",
@@ -41,10 +43,10 @@ const Booking = () => {
     email: "",
     tel: "",
   });
-  const navigate = useNavigate();
 
   return (
     <>
+      <Nav />
       <div className=" mx-8 mb-8 flex text-center  pt-10 font-medium md:mx-16 lg:mx-32 flex-col	">
         <div className="  border-black border-4">
           <p className="text-[24px] mt-5"> Book An Appointment</p>

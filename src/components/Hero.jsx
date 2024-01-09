@@ -1,7 +1,7 @@
 import dog from "../images/dogbathing.jpg";
 import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
-import { BsTwitter } from "react-icons/bs";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -15,24 +15,24 @@ const Hero = () => {
         className="h-96 w-full mt-10 cover object-cover border-2 border-black"
       />
       <div className="flex justify-between flex-col md:flex-row  ">
-        <div className="text-left  mt-5 ">
-          <p className="text-[21px] font-medium w-[520px] px-2 ">
+        <div className="text-left  mt-2 ">
+          <p className="text-[18px] font-medium w-[520px] px-2 ">
             cairo dog salone is a dog grooming salon based in cairo, providing
             calm and rejuvenating experiences for dogs.
           </p>
         </div>
 
         <div className="mt-5 flex ">
-          <p className="text-xl font-bold px-2"> follow us </p>
+          <p className="text-[18px] font-bold px-2 capitalize"> follow us </p>
           <span className=" text-[24px] px-2">
-            <BsFacebook />
+            <BsFacebook className="text-sky-950	" />
           </span>
           <span className=" text-[24px] px-2 ">
-            <BsInstagram />
+            <BsInstagram className="text-[#d62976]" />
           </span>
           <span className=" text-[24px] px-2">
             {" "}
-            <BsTwitter />
+            <FaXTwitter />
           </span>
         </div>
       </div>

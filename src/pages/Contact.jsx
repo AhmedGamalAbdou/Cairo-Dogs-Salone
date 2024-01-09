@@ -1,27 +1,30 @@
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { createMsg } from "../redux/slices/msgSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const email = useRef(null);
+  const message = useRef("");
+  const name = useRef(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    date: "",
-    time: "",
-    serviceMsg: "",
-    name: "",
-    email: "",
-    tel: "",
-  });
-  const notify = () => {
-    toast.success("Thank you for filling out your information!");
-  };
-
-  const onSubmit = (e) => {
+  function onSubmit(e) {
     e.preventDefault();
-    console.log("sucess");
-  };
+    dispatch(
+      createMsg({
+        email: email.current ? email.current.value : null,
+        name: name.current ? name.current.value : null,
+        message: message.current.value,
+      })
+    );
+    toast.success(
+      "Thank you for filling out your information we will revert to you soon."
+    );
+    navigate("/");
+  }
 
   return (
     <div>
@@ -41,7 +44,7 @@ const Contact = () => {
               className="shadow-sm bg-gray-50 border border-black text-gray-900 text-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               placeholder="Name"
               required
-              onChange={(e) => setName(e.target.value)}
+              ref={name}
             />
           </div>
           <div>
@@ -57,7 +60,7 @@ const Contact = () => {
               className="shadow-sm bg-gray-50 border border-black text-gray-900 text-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
               placeholder="Email"
               required
-              onChange={(e) => setName(e.target.value)}
+              ref={email}
             />
           </div>
           <div className="sm:col-span-2">
@@ -72,17 +75,14 @@ const Contact = () => {
               rows={6}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-black focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Leave a comment..."
+              ref={message}
             ></textarea>
           </div>
 
           <div className="w-[500px]">
-            <button
-              onClick={notify}
-              className="bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5   border-r-2 border-b-2 border-black  w-[200px] "
-            >
+            <button className="bg-[#FFC700] hover:bg-[#F9C200] text-[#000] py-2 px-5   border-r-2 border-b-2 border-black  w-[200px] ">
               Submit
             </button>
-            <ToastContainer />
           </div>
         </form>
       </div>

@@ -1,4 +1,9 @@
 import dog from "../images/dogbathing.jpg";
+import grooming from "../images/grooming.jpg";
+import drying from "../images/dryingdog1.jpg";
+import facetrim from "../images/faceTrim1.jpg";
+import cleandogears from "../images/cleandogears.avif";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -7,10 +12,10 @@ const Services = () => {
         <h2 className="mb-4 text-[64px] font-bold text-center">Our Services</h2>
         <div className="flex flex-col justify-around flex-wrap ">
           <div className="my-5 ">
-            <a href="#" className="">
+            <div>
               <img
-                src={dog}
-                className="h-96 w-full mt-10 cover object-cover border-2 border-black"
+                src={grooming}
+                className="h-96 w-full mt-10 cover object-cover border-2 border-black "
               />
               <div className="flex flex-col  p-4  border-black  border-b-2">
                 <h5 className="mb-2 text-2xl font-bold  text-gray-900 dark:text-white ">
@@ -21,11 +26,11 @@ const Services = () => {
                   long or short you would like.
                 </p>
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="my-5">
-            <a href="#" className="">
+            <div>
               <img
                 className="object-cover  h-[400px] w-full rounded"
                 src={dog}
@@ -40,15 +45,15 @@ const Services = () => {
                   the comfort of our purpose built hydro-bath.
                 </p>
               </div>
-            </a>
+            </div>
           </div>
 
           <div className="my-5">
-            <a href="#">
+            <div>
               <img
                 className="object-cover  h-[400px] w-full rounded"
-                src={dog}
-                alt=""
+                src={drying}
+                alt="drying"
               />
 
               <div className="flex flex-col justify-between p-4 border-black  border-b-2">
@@ -60,14 +65,14 @@ const Services = () => {
                   us to see each part of your dogs skin.
                 </p>
               </div>
-            </a>
+            </div>
           </div>
           <div className="my-5">
-            <a href="#">
+            <div>
               <img
                 className="object-cover  h-[400px] w-full rounded"
-                src={dog}
-                alt=""
+                src={facetrim}
+                alt="facetrim"
               />
 
               <div className="flex flex-col justify-between p-4 border-black  border-b-2">
@@ -79,14 +84,14 @@ const Services = () => {
                   Don’t wait for your next appt, pop in for a trim.
                 </p>
               </div>
-            </a>
+            </div>
           </div>
           <div className="my-5">
-            <a href="#">
+            <div>
               <img
                 className="object-cover  h-[400px] w-full rounded"
-                src={dog}
-                alt=""
+                src={cleandogears}
+                alt="cleandogears"
               />
 
               <div className="flex flex-col justify-between p-4 border-black  border-b-2">
@@ -98,7 +103,7 @@ const Services = () => {
                   contain natural ingredients for each dog we groom.
                 </p>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>

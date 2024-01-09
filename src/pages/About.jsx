@@ -1,4 +1,4 @@
-import bath from "../images/bath.jpg";
+import dog from "../images/dogbathing.jpg";
 import { AiFillHeart } from "react-icons/ai";
 
 const About = () => {
@@ -7,7 +7,7 @@ const About = () => {
       <div className=" mx-8 mb-8 flex flex-col pt-10 font-medium md:mx-16 lg:mx-96 text-[#000]">
         <p className="text-[64px] font-bold text-center "> About </p>
 
-        <div className="flex justify-around mt-10 gap-4 flex-col md:flex-row">
+        <div className="flex  mt-10 gap-4 flex-col md:flex-row">
           <div>
             <h2 className="text-[30px] border-b-2 border-r-2 border-black">
               {" "}
@@ -43,13 +43,12 @@ const About = () => {
                 sizes of dog, so give us a call today and see how we can help.
               </p>
             </div>
-          </div>
-          <div>
-            <img
-              src={bath}
-              alt="dogbathing"
-              className="h-[600px] w-[1200px] object-cover"
-            />
+            <div>
+              <img
+                src={dog}
+                className="h-96 w-full mt-10 cover object-cover border-2 border-black"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
-import bath from "../images/bath.jpg";
+import mike from "../images/mike.jpg";
+import felfl from "../images/felfl.jpg";
+import jenny from "../images/jenny.jpg";
 
 const Testmonials = () => {
   return (
@@ -11,64 +13,64 @@ const Testmonials = () => {
         <div className=" flex flex-col md:flex-row  container justify-around mb-5 mx-auto">
           <div className="flex flex-col  pb-10 mt-5 bg-white w-80 h-80 shadow-lg pt-10 text-center mx-auto ">
             <img
-              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3"
-              src={bath}
-              alt="Bonnie "
+              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3 object-cover"
+              src={mike}
+              alt="mike "
             />
 
             <p className="px-4 mt-2">
-              I have had Sophie washed and groomed since she was a puppy, she is
+              I have had mike washed and groomed since she was a puppy, she is
               now 7 years old. I find them so friendly and they’re really
               brilliant at their skill.
             </p>
 
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white mt-10 ">
-              Mrs Griffin, and Sophie
+              Mrs Griffin, and mike
             </h5>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              cocker spaniel
+              Boston Terrier
             </span>
           </div>
 
           <div className="flex flex-col  pb-10 mt-5 bg-white w-80 h-80 shadow-lg pt-10 text-center mx-auto ">
             <img
-              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3"
-              src={bath}
+              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3 object-cover"
+              src={felfl}
               alt="Bonnie "
             />
 
             <p className="px-4 mt-2">
-              I have had Sophie washed and groomed since she was a puppy, she is
-              now 7 years old. I find them so friendly and they’re really
+              I have had felfl washed and groomed since she was a puppy, she is
+              now 3 years old. I find them so friendly and they’re really
               brilliant at their skill.
             </p>
 
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white mt-10 ">
-              Mrs Griffin, and Sophie
+              Mrs susan, and felfl
             </h5>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              cocker spaniel
+              Dachshund{" "}
             </span>
           </div>
 
           <div className="flex flex-col  pb-10 mt-5 bg-white w-80 h-80 shadow-lg pt-10 text-center mx-auto">
             <img
-              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3"
-              src={bath}
+              className="w-14 h-14 rounded-full mx-auto shadow-lg mb-3 object-cover"
+              src={jenny}
               alt="Bonnie "
             />
 
             <p className="px-4 mt-2">
-              I have had Sophie washed and groomed since she was a puppy, she is
-              now 7 years old. I find them so friendly and they’re really
+              I have had jenny washed and groomed since she was a puppy, she is
+              now 2years old. I find them so friendly and they’re really
               brilliant at their skill.
             </p>
 
             <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white mt-10 ">
-              Mrs Griffin, and Sophie
+              Mrs michael, and jenny
             </h5>
             <span className="text-sm text-gray-500 dark:text-gray-400">
-              cocker spaniel
+              Jack Russell Terrier
             </span>
           </div>
         </div>
