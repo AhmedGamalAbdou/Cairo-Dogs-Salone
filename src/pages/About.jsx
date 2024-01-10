@@ -1,4 +1,4 @@
-import dog from "../images/dogbathing.jpg";
+import dog from "../images/bath2.jpg";
 import { AiFillHeart } from "react-icons/ai";
 
 const About = () => {

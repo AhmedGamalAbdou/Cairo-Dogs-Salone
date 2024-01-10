@@ -1,4 +1,4 @@
-import dog from "../images/dogbathing.jpg";
+import dog from "../images/bath2.jpg";
 import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";

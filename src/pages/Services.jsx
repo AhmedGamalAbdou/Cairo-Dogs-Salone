@@ -1,4 +1,4 @@
-import dog from "../images/dogbathing.jpg";
+import dog from "../images/bath2.jpg";
 import grooming from "../images/grooming.jpg";
 import drying from "../images/dryingdog1.jpg";
 import facetrim from "../images/faceTrim1.jpg";

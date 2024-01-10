@@ -1,4 +1,4 @@
-import bath from "../images/bath.jpg";
+import bath from "../images/bath2.jpg";
 import nail from "../images/nailTrim.jpg";
 import ear from "../images/earCleaning.jpg";
 
