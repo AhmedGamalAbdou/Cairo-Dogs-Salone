@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 import Booking from "../pages/Booking";
 
 const ProtectedRoute = () => {
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  return currentUser ? <Booking /> : <Navigate to="/login" />;
+  return isLoggedIn ? <Booking /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;

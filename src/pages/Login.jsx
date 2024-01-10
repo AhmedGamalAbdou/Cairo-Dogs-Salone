@@ -4,17 +4,20 @@ import { auth } from "../Firebase";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { login } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const log = async (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-      .then((userCredential) => {
-        const user = userCredential.user;
+      .then((user) => {
+        dispatch(login(user));
         toast.success("welcome!");
         navigate("/booking");
       })
@@ -84,7 +87,7 @@ const Login = () => {
                 </button>
                 <div>
                   <p className="text-sm  text-black">
-                    don't have an account?
+                    dont have an account?
                     <Link
                       to="/signup"
                       className="font-medium text-black hover:underline dark:text-primary-500 mx-1"
